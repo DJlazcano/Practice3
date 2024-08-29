@@ -1,1 +1,3 @@
 # Practice3
+
+## Exceptions
