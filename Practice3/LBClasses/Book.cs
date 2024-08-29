@@ -19,8 +19,8 @@ namespace Practice3.LBClasses
             IsCheckedOut = isCheckedOut;
         }
 
-        public override string ToString() {
-                
+        public override string ToString()
+        {
             return $"Title: {Title}, ISBN: {ISBN}, Is Checked Out: {IsCheckedOut}";
         }
     }

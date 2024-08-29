@@ -33,9 +33,21 @@ namespace Practice3
             //List Books after alterations
             Console.WriteLine("Books List After:");
             library.ListBooks();
-            
-            //Causing Exceptions
 
+            //Causing Exceptions (Test)
+            Console.WriteLine("\nCausing Exceptions:\n");
+            
+            //Removing None existing book Exception
+            library.RemoveBook(1);
+
+            library.AddBook(new Book("House of Dragons", 54444, false));
+            library.AddBook(new Book("Horses", 3456, true));
+
+            //Returning a Not Checked Out book Exception
+            library.ReturnBook(54444);
+
+            //Checking Out an already CheckedOut Book Exception
+            library.CheckOutBook(3456);
         }
     }
 }
