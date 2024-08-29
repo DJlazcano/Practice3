@@ -21,5 +21,30 @@ namespace Practice3.LBClasses
             books.Remove(tempBook);
             Console.WriteLine($"\nBook {tempBook.Title} removed.\n");
         }
+
+        public void CheckOutBook(int isbn)
+        {
+            int bookIndex = books.FindIndex(b => b.ISBN == isbn);
+            books[bookIndex].IsCheckedOut = true;
+
+            Console.WriteLine($"\n {books[bookIndex]} has been CheckOut.\n");
+        }
+
+        public void ReturnBook(int isbn)
+        {
+            int bookIndex = books.FindIndex(b => b.ISBN == isbn);
+            
+            books[bookIndex].IsCheckedOut = false;
+
+            Console.WriteLine($"\n {books[bookIndex]} has been Returned.\n");
+        }
+
+        public void ListBooks()
+        {
+            foreach (Book book in books)
+            {
+                Console.WriteLine(book.ToString());
+            }
+        }
     }
 }

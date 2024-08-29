@@ -18,5 +18,10 @@ namespace Practice3.LBClasses
             ISBN = iSBN;
             IsCheckedOut = isCheckedOut;
         }
+
+        public override string ToString() {
+                
+            return $"Title: {Title}, ISBN: {ISBN}, Is Checked Out: {IsCheckedOut}";
+        }
     }
 }
