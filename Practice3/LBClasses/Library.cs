@@ -21,13 +21,19 @@ namespace Practice3.LBClasses
             try
             {
                 Book tempBook = books.Find(b => b.ISBN == isbn);
+
+                if (tempBook == null)
+                {
+                    throw new BookNotFoundException($"Book with ISBN: {isbn} not found");
+                }
+
+                Console.WriteLine($"\nBook {tempBook.Title} removed.\n");
                 books.Remove(tempBook);
-               //Console.WriteLine($"\nBook {tempBook.Title} removed.\n");
             }
             catch (BookNotFoundException ex)
             {
 
-                throw new BookNotFoundException($"Book with ISBN: {isbn} not found"); ;
+                Console.WriteLine($"Error: {ex.Message}");
             }
 
         }
@@ -37,6 +43,11 @@ namespace Practice3.LBClasses
             try
             {
                 int bookIndex = books.FindIndex(b => b.ISBN == isbn);
+
+                if (bookIndex == -1)
+                {
+                    throw new BookNotFoundException($"Book with ISBN: {isbn} not found");
+                }
 
                 if (books[bookIndex].IsCheckedOut)
                 {
@@ -53,7 +64,7 @@ namespace Practice3.LBClasses
             }
             catch (BookNotFoundException ex)
             {
-                throw new BookNotFoundException($"Book with ISBN: {isbn} not found");
+                Console.WriteLine($"Error: {ex.Message}");
             }
         }
 
@@ -63,10 +74,16 @@ namespace Practice3.LBClasses
             {
                 int bookIndex = books.FindIndex(b => b.ISBN == isbn);
 
+                if (bookIndex == -1)
+                {
+                    throw new BookNotFoundException($"Book with ISBN: {isbn} not found");
+                }
+
                 if (books[bookIndex].IsCheckedOut == false)
                 {
                     throw new BookNotCheckedOutException($"The book {(books[bookIndex].Title)} has Not Been checked out");
                 }
+
                 books[bookIndex].IsCheckedOut = false;
 
                 Console.WriteLine($"\n {books[bookIndex]} has been Returned.\n");
@@ -77,7 +94,7 @@ namespace Practice3.LBClasses
             }
             catch (BookNotFoundException ex)
             {
-                throw new BookNotFoundException($"Book with ISBN: {isbn} not found");
+                Console.WriteLine($"Error: {ex.Message}");
             }
         }
 

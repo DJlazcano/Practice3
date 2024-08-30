@@ -40,6 +40,9 @@ namespace Practice3
             //Removing None existing book Exception
             library.RemoveBook(1);
 
+            //Returning non Existent book
+            library.ReturnBook(650);
+
             library.AddBook(new Book("House of Dragons", 54444, false));
             library.AddBook(new Book("Horses", 3456, true));
 
